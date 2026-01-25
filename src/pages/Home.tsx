@@ -220,7 +220,7 @@ const AboutUsSection = () => {
       linkedin: "https://www.linkedin.com/in/sivagurunathan-rajasekar-2386bb344/",
     },
     {
-      name: "Bhavanieswaran J",
+      name: "Bavanieswaran J",
       role: "Social media & Outreach Lead",
       bio: "Leads Brand Communication, digital presence, and outreach initiatives.",
       image: "https://img.sanishtech.com/u/f9c77e68a891a6592a11ff3b58a8a330.jpeg",

@@ -188,7 +188,7 @@ const AboutUsSection = () => {
       name: "Arun S",
       role: "Founder (Vision & Strategic Leadership)",
       bio: "Provides the overall vision and strategic direction for V2V. Leverages strong industry connections.",
-      image: "/team/Arun.jpg",
+      image: "/team/arun.jpg",
       linkedin: "https://www.linkedin.com/in/arun-sekar-7617b1253/",
     },
     {
@@ -223,7 +223,7 @@ const AboutUsSection = () => {
       name: "Bavanieswaran J",
       role: "Social media & Outreach Lead",
       bio: "Leads Brand Communication, digital presence, and outreach initiatives.",
-      image: "/team/Bavanies.jpg",
+      image: "/team/bavanies.jpg",
       linkedin: "https://www.linkedin.com/in/bavanieswaran-j-2a0621268",
     },
   ];

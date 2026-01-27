@@ -8,24 +8,20 @@ const CookieConsent = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Check if user has already consented
-        const consent = localStorage.getItem("cookieConsent");
-
-        // Only show if no choice has been made yet
+        const consent = localStorage.getItem("cookieConsent_v2");
         if (consent === null) {
-            // Small delay to show animation smoothly after initial load
             const timer = setTimeout(() => setIsVisible(true), 500);
             return () => clearTimeout(timer);
         }
     }, []);
 
     const acceptCookies = () => {
-        localStorage.setItem("cookieConsent", "true");
+        localStorage.setItem("cookieConsent_v2", "true");
         setIsVisible(false);
     };
 
     const rejectCookies = () => {
-        localStorage.setItem("cookieConsent", "false");
+        localStorage.setItem("cookieConsent_v2", "false");
         setIsVisible(false);
     };
 

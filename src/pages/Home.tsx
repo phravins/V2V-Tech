@@ -188,42 +188,42 @@ const AboutUsSection = () => {
       name: "Arun S",
       role: "Founder (Vision & Strategic Leadership)",
       bio: "Provides the overall vision and strategic direction for V2V. Leverages strong industry connections.",
-      image: "https://img.sanishtech.com/u/07de60f31db39522e320c228038668ab.jpeg",
+      image: "/team/Arun.jpg",
       linkedin: "https://www.linkedin.com/in/arun-sekar-7617b1253/",
     },
     {
       name: "Siva Rami Reddy",
       role: "Hardware R&D Lead",
       bio: "Leads the design, development, and prototyping of innovative hardware solutions.",
-      image: "https://img.sanishtech.com/u/e7691c875b5c958dbd72f4acd1945485.jpeg",
+      image: "/team/sivarami.jpg",
       linkedin: "https://www.linkedin.com/in/sivaramireddy-venna-37a3661a1/",
     },
     {
       name: "Phravin S",
       role: "Software R&D Lead",
       bio: "Oversees software development and digital innovation. Focuses on creating intelligent systems.",
-      image: "https://img.sanishtech.com/u/979c715c58b1a33fa3f84026d5a91f14.jpeg",
+      image: "/team/phravin.jpg",
       linkedin: "https://www.linkedin.com/in/phravin-s-467503252",
     },
     {
       name: "Mareeswaran V",
       role: "Business & Partnerships Lead",
       bio: "Heads business strategy, market engagement, and partnership development.",
-      image: "https://img.sanishtech.com/u/4e2f6539207b65d1cd3b7625c5c525cf.jpeg",
+      image: "/team/Mareeswaran.jpg",
       linkedin: "https://www.linkedin.com/in/mareeswaran-v-482524306?",
     },
     {
       name: "Sivagurunathan",
       role: "Finance & Operations Lead",
       bio: "Manages financial planning, budgeting, and operational efficiency.",
-      image: "https://img.sanishtech.com/u/87d37f5399f65642ae4683d5ddddce46.jpeg",
+      image: "/team/sivagurunathan.jpg",
       linkedin: "https://www.linkedin.com/in/sivagurunathan-rajasekar-2386bb344/",
     },
     {
       name: "Bavanieswaran J",
       role: "Social media & Outreach Lead",
       bio: "Leads Brand Communication, digital presence, and outreach initiatives.",
-      image: "https://img.sanishtech.com/u/f9c77e68a891a6592a11ff3b58a8a330.jpeg",
+      image: "/team/Bavanies.jpg",
       linkedin: "https://www.linkedin.com/in/bavanieswaran-j-2a0621268",
     },
   ];
@@ -743,17 +743,17 @@ const Footer = () => {
             <h4 className="text-lg font-bold tracking-tight mb-6">Company</h4>
             <ul className="space-y-4">
               {[
-                "About Us",
-                "Experiments",
-                "Team",
-                "Blogs",
+                { name: "About Us", href: "/about" },
+                { name: "Experiments", href: "/#experiments" },
+                { name: "Team", href: "/#about" }, // Team is inside About Us section
+                { name: "Blogs", href: "/blogs" },
 
               ].map((item, idx) => (
                 <li key={idx}>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center group">
+                  <Link to={item.href} className="text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center group">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {item}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

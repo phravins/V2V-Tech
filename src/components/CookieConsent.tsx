@@ -10,19 +10,28 @@ const CookieConsent = () => {
     useEffect(() => {
         // Check if user has already consented
         const consent = localStorage.getItem("cookieConsent");
+        console.log("Cookie consent check:", consent);
         if (!consent) {
+            console.log("Showing cookie banner in 1s...");
             // Small delay to show animation smoothly after initial load
-            const timer = setTimeout(() => setIsVisible(true), 1000);
+            const timer = setTimeout(() => {
+                console.log("Setting isVisible true");
+                setIsVisible(true);
+            }, 1000);
             return () => clearTimeout(timer);
+        } else {
+            console.log("Banner hidden because consent exists");
         }
     }, []);
 
     const acceptCookies = () => {
+        console.log("Accepted cookies");
         localStorage.setItem("cookieConsent", "true");
         setIsVisible(false);
     };
 
     const rejectCookies = () => {
+        console.log("Rejected cookies");
         localStorage.setItem("cookieConsent", "false");
         setIsVisible(false);
     };
@@ -35,7 +44,7 @@ const CookieConsent = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto md:max-w-md z-50"
+                    className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto md:max-w-md z-[9999]"
                 >
                     <div className="bg-background/80 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl flex flex-col gap-4">
                         <div className="flex items-start gap-4">

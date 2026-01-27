@@ -10,28 +10,21 @@ const CookieConsent = () => {
     useEffect(() => {
         // Check if user has already consented
         const consent = localStorage.getItem("cookieConsent");
-        console.log("Cookie consent check:", consent);
-        if (!consent) {
-            console.log("Showing cookie banner in 1s...");
+
+        // Only show if no choice has been made yet
+        if (consent === null) {
             // Small delay to show animation smoothly after initial load
-            const timer = setTimeout(() => {
-                console.log("Setting isVisible true");
-                setIsVisible(true);
-            }, 1000);
+            const timer = setTimeout(() => setIsVisible(true), 500);
             return () => clearTimeout(timer);
-        } else {
-            console.log("Banner hidden because consent exists");
         }
     }, []);
 
     const acceptCookies = () => {
-        console.log("Accepted cookies");
         localStorage.setItem("cookieConsent", "true");
         setIsVisible(false);
     };
 
     const rejectCookies = () => {
-        console.log("Rejected cookies");
         localStorage.setItem("cookieConsent", "false");
         setIsVisible(false);
     };

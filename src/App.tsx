@@ -7,6 +7,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AboutUs from "./pages/AboutUs";
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 const App = () => {
   return (
     <Router>
@@ -19,6 +21,7 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
       </Routes>
       <CookieConsent />
+      <SpeedInsights />
     </Router>
   );
 };

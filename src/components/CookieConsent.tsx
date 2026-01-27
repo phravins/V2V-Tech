@@ -54,7 +54,7 @@ const CookieConsent = () => {
                             </div>
                         </div>
 
-                        <div className="flex justify-end gap-3 pt-2">
+                        <div className="flex flex-col md:flex-row md:justify-end gap-3 pt-2">
                             <Button onClick={acceptCookies} className="w-full md:w-auto font-medium">
                                 Accept Cookies
                             </Button>

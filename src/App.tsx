@@ -8,6 +8,7 @@ import TermsOfService from "./pages/TermsOfService";
 import AboutUs from "./pages/AboutUs";
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       </Routes>
       <CookieConsent />
       <SpeedInsights />
+      <Analytics />
     </Router>
   );
 };

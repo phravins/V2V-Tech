@@ -19,7 +19,15 @@ const AboutUs = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h1 className="text-4xl font-bold mb-8 text-foreground">About Vision2Value (V2V) Tech</h1>
+                    <div className="flex justify-center mb-6">
+                        <img
+                            src="/v2v-logo.png"
+                            alt="V2V Tech Logo"
+                            className="w-24 h-24 object-contain drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]"
+                        />
+                    </div>
+
+                    <h1 className="text-4xl font-bold mb-8 text-foreground hover:text-primary transition-colors duration-300 cursor-default text-center">Vision2Value (V2V) Tech</h1>
 
                     <div className="space-y-8 text-foreground/90 leading-relaxed">
                         <section>

@@ -19,7 +19,6 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Facebook,
   Instagram,
   Youtube,
   TrendingUp,
@@ -82,7 +81,7 @@ const HeroSection = () => {
             <img
               src="/v2v-logo.png"
               alt="V2V Logo"
-              className="h-24 md:h-32 w-auto transition-all"
+              className="h-24 md:h-32 w-auto transition-all drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]"
             />
           </div>
           <h1 className="mx-auto mb-6 max-w-4xl text-4xl font-light md:text-5xl lg:text-7xl">
@@ -707,7 +706,7 @@ const Footer = () => {
               <img
                 src="/v2v-logo.png"
                 alt="Vision2Value Logo"
-                className="h-16 w-auto transition-all group-hover:scale-105 duration-300"
+                className="h-16 w-auto transition-all group-hover:scale-105 duration-300 drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]"
               />
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -758,7 +757,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { name: "About Us", href: "/about" },
-                { name: "Experiments", href: "/#experiments" },
+                { name: "Experiments", href: "/experiments" },
                 { name: "Team", href: "/#about" }, // Team is inside About Us section
                 { name: "Blogs", href: "/blogs" },
 

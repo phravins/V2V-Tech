@@ -8,11 +8,9 @@ const CookieConsent = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const consent = localStorage.getItem("cookieConsent_v2");
-        if (consent === null) {
-            const timer = setTimeout(() => setIsVisible(true), 500);
-            return () => clearTimeout(timer);
-        }
+        // Always show the cookie consent on mount, regardless of previous choices
+        const timer = setTimeout(() => setIsVisible(true), 500);
+        return () => clearTimeout(timer);
     }, []);
 
     const acceptCookies = () => {

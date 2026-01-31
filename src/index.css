@@ -103,57 +103,35 @@
   }
 }
 
-/* From Uiverse.io by cssbuttons-io */
+/* Glassmorphic Pill Button (Admin Style) */
 .neon-button {
-  --glow-color: rgb(100, 61, 136);
-  --glow-spread-color: rgba(100, 61, 136, 0.781);
-  --enhanced-glow-color: rgb(100, 61, 136);
-  --btn-color: hsl(var(--background));
-  border: .2em solid var(--glow-color);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
   padding: 0.5em 1.5em;
-  color: var(--glow-color);
   font-size: 13px;
-  font-weight: bold;
-  background-color: var(--btn-color);
-  border-radius: 1em;
+  font-weight: 500;
+  border-radius: 9999px;
   outline: none;
-  /* Reduced glow intensity significantly */
-  box-shadow: 0 0 0.6em 0.1em var(--glow-color),
-    0 0 1.5em 0.5em var(--glow-spread-color),
-    inset 0 0 0.5em 0.1em var(--glow-color);
-  text-shadow: 0 0 0.3em var(--glow-color);
   position: relative;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.neon-button::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  top: 120%;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--glow-spread-color);
-  filter: blur(1.5em);
-  /* Reduced blur */
-  opacity: .5;
-  /* Reduced opacity */
-  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(10px);
 }
 
 .neon-button:hover {
-  color: var(--btn-color);
-  background-color: var(--glow-color);
-  /* Reduced hover glow */
-  box-shadow: 0 0 0.8em 0.2em var(--glow-color),
-    0 0 2em 1em var(--glow-spread-color),
-    inset 0 0 0.6em 0.2em var(--glow-color);
+  border-color: rgba(155, 135, 245, 0.3);
+  box-shadow: 0 0 20px rgba(155, 135, 245, 0.5);
+  /* Purple glow on hover */
+  transform: translateY(-1px);
 }
 
 .neon-button:active {
-  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
-    0 0 1.5em 1em var(--glow-spread-color),
-    inset 0 0 0.5em 0.25em var(--glow-color);
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(155, 135, 245, 0.3);
+}
+
+.neon-button::after {
+  content: none;
 }

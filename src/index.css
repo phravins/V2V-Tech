@@ -64,6 +64,7 @@
     --chart-5: 300 55% 70%;
   }
 
+  html,
   body {
     @apply bg-background text-foreground antialiased;
   }
@@ -103,29 +104,30 @@
 }
 
 /* From Uiverse.io by cssbuttons-io */
-.admin-glow-btn {
-  --glow-color: rgb(217, 176, 255);
-  --glow-spread-color: rgba(191, 123, 255, 0.781);
-  --enhanced-glow-color: rgb(231, 206, 255);
-  --btn-color: rgb(100, 61, 136);
-  border: .25em solid var(--glow-color);
-  padding: 1em 3em;
+.neon-button {
+  --glow-color: rgb(100, 61, 136);
+  --glow-spread-color: rgba(100, 61, 136, 0.781);
+  --enhanced-glow-color: rgb(100, 61, 136);
+  --btn-color: hsl(var(--background));
+  border: .2em solid var(--glow-color);
+  padding: 0.5em 1.5em;
   color: var(--glow-color);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   background-color: var(--btn-color);
   border-radius: 1em;
   outline: none;
-  box-shadow: 0 0 1em .25em var(--glow-color),
-    0 0 4em 1em var(--glow-spread-color),
-    inset 0 0 .75em .25em var(--glow-color);
-  text-shadow: 0 0 .5em var(--glow-color);
+  /* Reduced glow intensity significantly */
+  box-shadow: 0 0 0.6em 0.1em var(--glow-color),
+    0 0 1.5em 0.5em var(--glow-spread-color),
+    inset 0 0 0.5em 0.1em var(--glow-color);
+  text-shadow: 0 0 0.3em var(--glow-color);
   position: relative;
   transition: all 0.3s;
   cursor: pointer;
 }
 
-.admin-glow-btn::after {
+.neon-button::after {
   pointer-events: none;
   content: "";
   position: absolute;
@@ -134,21 +136,24 @@
   height: 100%;
   width: 100%;
   background-color: var(--glow-spread-color);
-  filter: blur(2em);
-  opacity: .7;
+  filter: blur(1.5em);
+  /* Reduced blur */
+  opacity: .5;
+  /* Reduced opacity */
   transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
 
-.admin-glow-btn:hover {
+.neon-button:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
-  box-shadow: 0 0 1em .25em var(--glow-color),
-    0 0 4em 2em var(--glow-spread-color),
-    inset 0 0 .75em .25em var(--glow-color);
+  /* Reduced hover glow */
+  box-shadow: 0 0 0.8em 0.2em var(--glow-color),
+    0 0 2em 1em var(--glow-spread-color),
+    inset 0 0 0.6em 0.2em var(--glow-color);
 }
 
-.admin-glow-btn:active {
-  box-shadow: 0 0 0.6em .25em var(--glow-color),
-    0 0 2.5em 2em var(--glow-spread-color),
-    inset 0 0 .5em .25em var(--glow-color);
+.neon-button:active {
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 1.5em 1em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
 }

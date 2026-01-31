@@ -36,7 +36,7 @@ const HeroSection = () => {
     >
       <div className="absolute top-5 right-5 z-50">
         <Link to="/admin-login">
-          <button className="admin-glow-btn">
+          <button className="neon-button">
             Admin Login
           </button>
         </Link>

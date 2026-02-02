@@ -1,33 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
-  ArrowRight,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { useInView, useSpring, useTransform, motion } from "framer-motion";
+import {
   Zap,
-  Lightbulb,
   Rocket,
-  Users,
   Target,
+  Users,
   Award,
+  LightbulbIcon as Lightbulb,
+  TrendingUp,
+  MapPin,
   Mail,
   Phone,
-  MapPin,
+  ArrowRight,
   Linkedin,
   Instagram,
   Youtube,
-  TrendingUp,
-  Calendar,
   Star,
-
+  Calendar,
   Quote,
   ChevronDown,
 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/apiConfig";
 
 const HeroSection = () => {
   return (
@@ -535,7 +539,7 @@ const FAQSection = () => {
 
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionItem key={index} value={`item - ${index} `}>
               <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
             </AccordionItem>
@@ -562,7 +566,7 @@ const ContactSection = () => {
 
     try {
       // Use Local API
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch(`${API_BASE_URL} /api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

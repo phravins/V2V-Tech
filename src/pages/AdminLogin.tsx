@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { API_BASE_URL } from "@/lib/apiConfig";
 
 const AdminLogin = () => {
     // Auth State
@@ -37,7 +38,7 @@ const AdminLogin = () => {
         setError(null);
         setSuccess(null);
 
-        const endpoint = mode === 'register' ? 'http://localhost:3001/api/register' : 'http://localhost:3001/api/login';
+        const endpoint = mode === 'register' ? `${API_BASE_URL}/api/register` : `${API_BASE_URL}/api/login`;
 
         try {
             const response = await fetch(endpoint, {
@@ -69,7 +70,7 @@ const AdminLogin = () => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:3001/api/forgot-password', {
+            const response = await fetch(`${API_BASE_URL}/api/forgot-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
@@ -97,7 +98,7 @@ const AdminLogin = () => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:3001/api/reset-password', {
+            const response = await fetch(`${API_BASE_URL}/api/reset-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp, newPassword }),

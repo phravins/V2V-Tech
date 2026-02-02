@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { LogOut } from 'lucide-react';
+import { API_BASE_URL } from "@/lib/apiConfig";
 
 interface ContactMessage {
     id: number;
@@ -28,7 +29,7 @@ const AdminDashboard = () => {
 
     const fetchMessages = async () => {
         try {
-            const response = await fetch('http://localhost:3001/api/messages');
+            const response = await fetch(`${API_BASE_URL}/api/messages`);
             const result = await response.json();
 
             if (result.data) {

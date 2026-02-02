@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -42,7 +41,8 @@ const AdminDashboard = () => {
     };
 
     const handleLogout = async () => {
-        await supabase.auth.signOut();
+        // Clear local session storage if any
+        localStorage.removeItem('admin_session');
         navigate('/admin-login');
     };
 

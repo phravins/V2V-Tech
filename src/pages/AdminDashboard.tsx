@@ -25,22 +25,18 @@ const AdminDashboard = () => {
     }, []);
 
     const checkUser = async () => {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) {
-            navigate('/admin-login');
-        }
     };
 
     const fetchMessages = async () => {
-        const { data, error } = await supabase
-            .from('contact_messages')
-            .select('*')
-            .order('created_at', { ascending: false });
+        try {
+            const response = await fetch('http://localhost:3001/api/messages');
+            const result = await response.json();
 
-        if (error) {
+            if (result.data) {
+                setMessages(result.data);
+            }
+        } catch (error) {
             console.error('Error fetching messages:', error);
-        } else {
-            setMessages(data || []);
         }
         setLoading(false);
     };

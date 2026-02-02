@@ -1,0 +1,27 @@
+databases:
+  - name: v2v-db
+    databaseName: v2v_production
+    user: v2v_user
+    plan: free
+
+services:
+  - type: web
+    name: v2v-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/index.cjs
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: v2v-db
+          property: connectionString
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

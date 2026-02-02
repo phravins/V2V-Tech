@@ -21,6 +21,7 @@ import AboutUs from "./pages/AboutUs";
 import Blogs from "./pages/Blogs";
 import BlogPost from "./pages/BlogPost";
 import Experiments from "./pages/Experiments";
+import Team from "./pages/Team";
 
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogPost />} />
         <Route path="/experiments" element={<Experiments />} />
+        <Route path="/team" element={<Team />} />
       </Routes>
       <CookieConsent />
       <SpeedInsights />

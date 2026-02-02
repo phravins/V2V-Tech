@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "@/lib/supabaseClient";
+
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -561,13 +561,18 @@ const ContactSection = () => {
     setStatus("submitting");
 
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([
-          { name: formData.name, email: formData.email, message: formData.message },
-        ]);
+      // Use Local API
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        throw new Error('Failed to submit message');
+      }
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
@@ -744,7 +749,7 @@ const Footer = () => {
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Experiments", href: "/experiments" },
-                { name: "Team", href: "/#about" }, // Team is inside About Us section
+                { name: "Team", href: "/team" },
                 { name: "Blogs", href: "/blogs" },
 
               ].map((item, idx) => (

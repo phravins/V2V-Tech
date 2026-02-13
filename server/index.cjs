@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const pool = require('./db-postgres.cjs');
+const pool = require('./db-adapter.cjs');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();

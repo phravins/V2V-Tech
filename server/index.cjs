@@ -191,7 +191,12 @@ app.post('/api/reset-password', async (req, res) => {
     }
 });
 
-// START SERVER
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// START SERVER (Only for local development)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
